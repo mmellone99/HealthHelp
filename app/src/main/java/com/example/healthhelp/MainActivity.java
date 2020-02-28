@@ -12,7 +12,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     RegistrationDatabase db;
     EditText e1,e2,e3;
-    Button b1,b2;
+    Button b1,b2; //comment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
