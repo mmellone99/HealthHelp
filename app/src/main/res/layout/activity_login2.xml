@@ -53,4 +53,5 @@
         android:text="Sign Up"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlogin2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

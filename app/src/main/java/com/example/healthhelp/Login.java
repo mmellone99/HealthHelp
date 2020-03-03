@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
     EditText e1,e2;
-    Button b1,b2;
+    Button b1,b2, b3;
     RegistrationDatabase db;
 
     @Override

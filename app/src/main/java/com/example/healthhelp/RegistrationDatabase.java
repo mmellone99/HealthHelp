@@ -16,7 +16,7 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table user(email text primary key , password text)");
-        db.execSQL("Create table information(name text primary key , age text, height text, weight text)");
+        db.execSQL("Create table information(email text primary key, name text, age int, height int, weight int, gender text)");
 
     }
 
@@ -37,6 +37,22 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertInformation (String email, String name, int height, int weight, int age, String gender){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email",email);
+        contentValues.put("name",name);
+        contentValues.put("age",age);
+        contentValues.put("height",height);
+        contentValues.put("weight",weight);
+        contentValues.put("gender",gender);
+        long ins = db.insert("information",null,contentValues);
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
     public Boolean checkemail(String email){
         SQLiteDatabase db= this.getReadableDatabase();
         Cursor cursor = db.rawQuery("Select * from user where email=?", new String[]{email});
@@ -45,6 +61,8 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         else
             return true;
     }
+
+
     public Boolean emailpassword(String email, String password){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor =db.rawQuery("select * from user where email=? and password=?", new String[]{email,password});
