@@ -17,13 +17,14 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("Create table user(email text primary key , password text)");
         db.execSQL("Create table information(email text primary key, name text, age int, height int, weight int, gender text)");
-
+        db.execSQL("Create table goalTargets (email text primary key, weightTarget int, water int, steps int, calories int, sleep int)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("drop table if exists user");
         db.execSQL("drop table if exists information");
+        db.execSQL("drop table if exists goalTargets");
     }
     public boolean insert(String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -48,6 +49,77 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         contentValues.put("gender",gender);
         long ins = db.insert("information",null,contentValues);
         if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertTargetGoals (String email, int weight, int steps, int calories, int sleep, int water){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("email",email);
+        contentValues.put("weightTarget",weight);
+        contentValues.put("steps",steps);
+        contentValues.put("calories",calories);
+        contentValues.put("water",water);
+        contentValues.put("sleep",sleep);
+        long ins = db.insert("goalTargets",null, contentValues);
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateWeightTarget (String email, int weightTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("weightTarget",weightTarget);
+        long ins = db.update("goalTargets",contentValues,"email=?",new String[]{email});
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateHydrateGoal (String email, int hydrateTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("water",hydrateTarget);
+        long ins = db.update("goalTargets",contentValues, "email=?",new String[]{email});
+        if(ins == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateSleepGoal (String email, int sleepTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("sleep",sleepTarget);
+        long ins = db.update("goalTargets",contentValues,"email=?",new String[]{email});
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateStepsGoal (String email, int stepsTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("steps",stepsTarget);
+        long ins = db.update("goalTargets",contentValues,"email=?",new String[]{email});
+        if(ins == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateCaloriesGoal(String email, int caloriesTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("calories", caloriesTarget);
+        long ins = db.update("goalTargets", contentValues, "email=?",new String []{email});
+        if(ins == -1)
             return false;
         else
             return true;

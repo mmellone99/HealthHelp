@@ -12,7 +12,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     RegistrationDatabase db;
-    EditText e1,e2,e3, e4, e5, e6, e7, e8;
+    public static EditText e1;
+    EditText e2,e3, e4, e5, e6, e7, e8;
     Button b1,b2; //comment
     CheckBox c1, c2, c3, c4, c5, c6, c7, c8;
 
@@ -31,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         e8 = (EditText) findViewById(R.id.txtage);
         b1=(Button)findViewById(R.id.btnreg);
         b2=(Button)findViewById(R.id.btnlogin);
-//        Toast.makeText(getApplicationContext(),"Page open", Toast.LENGTH_LONG).show();
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
@@ -135,9 +135,12 @@ public class MainActivity extends AppCompatActivity {
                         if(checkemailpassword==false){
                             Boolean insert = db.insert(s1,s2);
                             Boolean insertInformation = db.insertInformation(s1,s4,totalheight,totalweight,s8,gender);
+                            Boolean insertGoalsTargetInitial = db.insertTargetGoals(s1, 0,0,0,0,0);
 
                             if(insert==true&&insertInformation==true)
                                 Toast.makeText(getApplicationContext(),"Registered Successfully",Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(MainActivity.this, NewUserGoals.class) ;
+                                startActivity(i);
                         }
                         else{
                             Toast.makeText(getApplicationContext(), "Password or Email Already In Use", Toast.LENGTH_LONG).show();
