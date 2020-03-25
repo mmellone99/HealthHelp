@@ -8,6 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import com.example.healthhelp.Model.Information;
+
+import java.util.ArrayList;
+
 public class RegistrationDatabase extends SQLiteOpenHelper {
     public RegistrationDatabase(@Nullable Context context) {
         super(context, "Login.db", null, 1);
@@ -18,6 +22,7 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         db.execSQL("Create table user(email text primary key , password text)");
         db.execSQL("Create table information(email text primary key, name text, age int, height int, weight int, gender text)");
         db.execSQL("Create table goalTargets (email text primary key, weightTarget int, water int, steps int, calories int, sleep int)");
+        db.execSQL("Create table goalTracking (email text primary key, weightTracker int, waterTracker int, stepsTracker int, caloriesTracker int, sleepTracker int)");
     }
 
     @Override
@@ -25,6 +30,7 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         db.execSQL("drop table if exists user");
         db.execSQL("drop table if exists information");
         db.execSQL("drop table if exists goalTargets");
+        db.execSQL("drop table if exists goalTracking");
     }
     public boolean insert(String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -75,6 +81,17 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("weightTarget",weightTarget);
         long ins = db.update("goalTargets",contentValues,"email=?",new String[]{email});
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean weightGoalProgress (int weightTracker){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("weightTracker", weightTracker);
+        long ins = db.insert("goalTracking",null,contentValues);
         if(ins==-1)
             return false;
         else
@@ -143,4 +160,22 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         else
             return false;
     }
+
+    public ArrayList<Information> getAllData(){
+        ArrayList<Information> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from information", null);
+        while(cursor.moveToNext())
+        {
+            String name = cursor.getString(1);
+            int age = cursor.getInt(2);
+            int height = cursor.getInt(3);
+            int weight = cursor.getInt(4);
+            Information information = new Information(age,height,weight,name);
+
+            arrayList.add(information);
+        }
+        return arrayList;
+    }
+
 }
