@@ -32,12 +32,9 @@
         android:layout_height="53dp"
         android:layout_marginStart="18dp"
         android:layout_marginLeft="18dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
         android:layout_marginBottom="2dp"
         android:text="Activity Tracker"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnGoalTracker"
         app:layout_constraintStart_toEndOf="@+id/btnEditGoals" />
 
     <Button
@@ -82,17 +79,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-<<<<<<< HEAD
-        android:id="@+id/inputeNewGoalValueBtn"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
-        android:text="Input New Goal Value"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
-=======
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginBottom="4dp"
+        android:text="Change Goals"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnActivityTrackingPage" />
+
+
+    =======
         android:id="@+id/btnGoalTracker"
         android:layout_width="121dp"
         android:layout_height="53dp"
