@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/WeightGoalUpdateTxt"
+        android:layout_width="153dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Input Goal Value"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        tools:layout_editor_absoluteX="24dp" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Update Weight Goal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/updateWeightGoalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:text="Update"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Update Water Goal"
+        app:layout_constraintTop_toBottomOf="@+id/WeightGoalUpdateTxt"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/WaterGoalUpdateTxt"
+        android:layout_width="156dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Input Water Goal"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView24"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/updateWaterGoalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="36dp"
+        android:text="Update"
+        app:layout_constraintStart_toEndOf="@+id/WaterGoalUpdateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/updateWeightGoalBtn" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Update Steps Goal"
+        app:layout_constraintTop_toBottomOf="@+id/WaterGoalUpdateTxt"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/StepsGoalUpdateTxt"
+        android:layout_width="159dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Input Steps Goal"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/updateStepsGoalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="109dp"
+        android:layout_marginLeft="109dp"
+        android:layout_marginTop="32dp"
+        android:text="Update"
+        app:layout_constraintStart_toEndOf="@+id/StepsGoalUpdateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/updateWaterGoalBtn" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Update Calories Goal"
+        app:layout_constraintTop_toBottomOf="@+id/StepsGoalUpdateTxt"
+        tools:layout_editor_absoluteX="17dp" />
+
+    <EditText
+        android:id="@+id/CaloriesGoalUpdateTxt"
+        android:layout_width="169dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Input Calories Goal"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        tools:layout_editor_absoluteX="17dp" />
+
+    <Button
+        android:id="@+id/updateCaloriesGoalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="40dp"
+        android:text="Update"
+        app:layout_constraintStart_toEndOf="@+id/CaloriesGoalUpdateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/updateStepsGoalBtn" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Update Sleep Goal"
+        app:layout_constraintTop_toBottomOf="@+id/CaloriesGoalUpdateTxt"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <EditText
+        android:id="@+id/CaloriesSleepUpdateTxt"
+        android:layout_width="173dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Input Sleep Goal"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        tools:layout_editor_absoluteX="13dp" />
+
+    <Button
+        android:id="@+id/updateSleepGoalBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginLeft="96dp"
+        android:layout_marginTop="40dp"
+        android:text="Update"
+        app:layout_constraintStart_toEndOf="@+id/CaloriesSleepUpdateTxt"
+        app:layout_constraintTop_toBottomOf="@+id/updateCaloriesGoalBtn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

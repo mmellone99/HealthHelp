@@ -111,10 +111,10 @@ public class GoalTracker extends AppCompatActivity {
                 int yesterdaysCaloriesInt = Integer.parseInt(yesterdaysCaloriesDatabse);
                 int trendCaloriesDaily = todaysCaloriesInt - yesterdaysCaloriesInt;
                 if(trendCaloriesDaily>0){
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cups (Trend: +"+trendCaloriesDaily+" cups) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: +"+trendCaloriesDaily+" cals) ");
                 }
                 else{
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cups (Trend: "+trendCaloriesDaily+" cups) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: "+trendCaloriesDaily+" cals) ");
                 }
             }
         }
@@ -135,7 +135,7 @@ public class GoalTracker extends AppCompatActivity {
                 int yesterdaysStepInt = Integer.parseInt(yesterdaysStepsDatabase);
                 int trendStepDaily = todaysStepInt - yesterdaysStepInt;
                 if(trendStepDaily>0){
-                    textViewStepDaily.setText((yesterdaysStepsDatabase) + " cups (Trend: +"+trendStepDaily+" cups) ");
+                    textViewStepDaily.setText((yesterdaysStepsDatabase) + " steps (Trend: +"+trendStepDaily+" steps) ");
                 }
                 else{
                     textViewStepDaily.setText((yesterdaysStepsDatabase) + " cups (Trend: "+trendStepDaily+" cups) ");

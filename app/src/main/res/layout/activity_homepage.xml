@@ -46,7 +46,7 @@
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="2dp"
-        android:text="Edit Goals"
+        android:text="Input/Track Goals"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnActivityTrackingPage"
         app:layout_constraintStart_toStartOf="parent" />
@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/changeGoalsBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"

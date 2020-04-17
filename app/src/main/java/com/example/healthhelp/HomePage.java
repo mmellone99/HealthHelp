@@ -41,6 +41,7 @@ public class HomePage extends AppCompatActivity {
         b2=(Button)findViewById(R.id.btnProfilePage);
         b3=(Button)findViewById(R.id.btnEditGoals);
         b4=(Button)findViewById(R.id.btnActivityTrackingPage);
+        b5  = findViewById(R.id.changeGoalsBtn);
 
 
         arrayList = new ArrayList<>();
@@ -80,13 +81,13 @@ public class HomePage extends AppCompatActivity {
                 startActivity(i);
             }
         });
-//        b5.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v){
-//                Intent i = new Intent(HomePage.this, GoalTracker.class) ;
-//                startActivity(i);
-//            }
-//        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(HomePage.this, UpdateGoalsPage.class) ;
+                startActivity(i);
+            }
+        });
     }
 
     private void loadDataInListView() {
