@@ -78,6 +78,8 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
             return true;
     }
 
+
+
     public boolean updateWeightTarget (String email, int weightTarget){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -87,6 +89,18 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    public boolean updateWeightTargetProfile(int weightTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("weightTarget",weightTarget);
+        long ins = db.update("goalTargets",contentValues,null,null);
+        if(ins==-1)
+            return false;
+        else
+            return true;
+
     }
 
     public boolean weightGoalProgress (int weightTracker, String dateInserted){
@@ -230,6 +244,18 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         else
             return true;
     }
+
+    public boolean updateHydrateGoalProfile (int hydrateTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("water",hydrateTarget);
+        long ins = db.update("goalTargets",contentValues, null,null);
+        if(ins == -1)
+            return false;
+        else
+            return true;
+    }
+
     public boolean hydrateGoalProgress(int hydrateTracker, String dateInserted){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -248,6 +274,17 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         ContentValues contentValues = new ContentValues();
         contentValues.put("sleep",sleepTarget);
         long ins = db.update("goalTargets",contentValues,"email=?",new String[]{email});
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean updateSleepGoalProfile (int sleepTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("sleep",sleepTarget);
+        long ins = db.update("goalTargets",contentValues,null,null);
         if(ins==-1)
             return false;
         else
@@ -340,6 +377,17 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean updateStepsGoalProfile (int stepsTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("steps",stepsTarget);
+        long ins = db.update("goalTargets",contentValues,null,null);
+        if(ins == -1)
+            return false;
+        else
+            return true;
+    }
+
     public boolean stepGoalProgress (int stepTracker, String dateInserted){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -424,6 +472,18 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean updateCaloriesGoalProfile (int caloriesTarget){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("calories", caloriesTarget);
+        long ins = db.update("goalTargets", contentValues, null,null);
+        if(ins == -1)
+            return false;
+        else
+            return true;
+    }
+
+
     public boolean caloriesGoalProgress (int calorieTracker, String dateInserted){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -471,7 +531,7 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         }
         else {
             while (cursor.moveToNext()) {
-                todayCalories = cursor.getInt(3);
+                todayCalories = cursor.getInt(4);
             }
         }
         return Integer.toString(todayCalories);
@@ -534,6 +594,5 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-
 
 }
