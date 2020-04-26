@@ -9,6 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 import com.example.healthhelp.Model.Information;
+import com.example.healthhelp.Model.InformationCardio;
+import com.example.healthhelp.Model.InformationGoals;
+import com.example.healthhelp.Model.InformationWeight;
+
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -25,6 +29,8 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         db.execSQL("Create table information(email text primary key, name text, age int, height int, weight int, gender text)");
         db.execSQL("Create table goalTargets (email text primary key, weightTarget int, water int, steps int, calories int, sleep int)");
         db.execSQL("Create table goalTracking (email text primary key, weightTracker int, waterTracker int, stepsTracker int, caloriesTracker int, sleepTracker int, dateInserted text)");
+        db.execSQL("Create table activityCardioTracking(exerciseCardioName text primary key, cardioDuration int,dateInserted text)");
+        db.execSQL("Create table activityWeightTracking(exerciseWeightName text primary key,  weightType text, weightLifted int, numberSets int, numberReps int, dateInserted text )");
     }
 
     @Override
@@ -33,6 +39,8 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         db.execSQL("drop table if exists information");
         db.execSQL("drop table if exists goalTargets");
         db.execSQL("drop table if exists goalTracking");
+        db.execSQL("drop table if exists activityCardioTracking");
+        db.execSQL("drop table if exists activityWeightTracking");
     }
     public boolean insert(String email, String password){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -45,6 +53,36 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         else
             return true;
     }
+
+    public boolean insertCardioActivity (String exerciseCardioName, int cardioDuration, String dateInserted){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("exerciseCardioName",exerciseCardioName);
+        contentValues.put("cardioDuration",cardioDuration);
+        contentValues.put("dateInserted",dateInserted);
+        long ins = db.insert("activityCardioTracking",null,contentValues);
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertWeightActivity (String exerciseWeightName, String weightType, int weightLifted, int numberSets, int numberReps, String dateInserted){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("exerciseWeightName",exerciseWeightName);
+        contentValues.put("weightType",weightType);
+        contentValues.put("weightLifted",weightLifted);
+        contentValues.put("numberSets",numberSets);
+        contentValues.put("numberReps",numberReps);
+        contentValues.put("dateInserted",dateInserted);
+        long ins = db.insert("activityWeightTracking",null,contentValues);
+        if(ins==-1)
+            return false;
+        else
+            return true;
+    }
+
 
     public boolean insertInformation (String email, String name, int height, int weight, int age, String gender){
         SQLiteDatabase db = this.getWritableDatabase();
@@ -594,5 +632,60 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         }
         return arrayList;
     }
+
+    public ArrayList<InformationGoals> getAllGoalData(){
+        ArrayList<InformationGoals> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from goalTargets", null);
+        while(cursor.moveToNext())
+        {
+            int weightTarget = cursor.getInt(1);
+            int water = cursor.getInt(2);
+            int steps = cursor.getInt(3);
+            int calories = cursor.getInt(4);
+            int sleep = cursor.getInt(5);
+            InformationGoals information = new InformationGoals(weightTarget,water,steps,calories,sleep);
+
+            arrayList.add(information);
+        }
+        return arrayList;
+    }
+
+    public ArrayList<InformationCardio> getAllCardioData(){
+        ArrayList<InformationCardio> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from activityCardioTracking", null);
+        while(cursor.moveToNext())
+        {
+            String exerciseCardioName = cursor.getString(0);
+            int cardioDuration = cursor.getInt(1);
+            String dateInserted = cursor.getString(2);
+            InformationCardio information = new InformationCardio(exerciseCardioName,cardioDuration,dateInserted);
+
+            arrayList.add(information);
+        }
+        return arrayList;
+    }
+
+    public ArrayList<InformationWeight> getAllWeightData(){
+        ArrayList<InformationWeight> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from activityWeightTracking", null);
+        while(cursor.moveToNext())
+        {
+            String exerciseWeightName = cursor.getString(0);
+            String weightType = cursor.getString(1);
+            int weightLifted = cursor.getInt(2);
+            int numberSets = cursor.getInt(3);
+            int numberReps = cursor.getInt(4);
+            InformationWeight information = new InformationWeight(exerciseWeightName,weightType,weightLifted,numberSets,numberReps);
+
+            arrayList.add(information);
+        }
+        return arrayList;
+    }
+
+
+
 
 }

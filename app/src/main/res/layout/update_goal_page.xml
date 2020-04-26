@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#cefcfd"
     android:layout_height="match_parent">
 
     <EditText
@@ -160,5 +161,21 @@
         android:text="Update"
         app:layout_constraintStart_toEndOf="@+id/CaloriesSleepUpdateTxt"
         app:layout_constraintTop_toBottomOf="@+id/updateCaloriesGoalBtn" />
+
+    <Button
+        android:id="@+id/btnUpdateGoalHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="157dp"
+        android:layout_marginLeft="157dp"
+        android:layout_marginTop="86dp"
+        android:layout_marginEnd="166dp"
+        android:layout_marginRight="166dp"
+        android:layout_marginBottom="155dp"
+        android:text="Back Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CaloriesSleepUpdateTxt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

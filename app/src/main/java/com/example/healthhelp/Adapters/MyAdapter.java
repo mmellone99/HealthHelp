@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.example.healthhelp.Model.Information;
+import com.example.healthhelp.Model.InformationGoals;
 import com.example.healthhelp.R;
 
 import java.util.ArrayList;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class MyAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<Information> arrayList;
+    ArrayList<InformationGoals> arrayList;
 
-    public MyAdapter(Context context,ArrayList<Information> arrayList)
+    public MyAdapter(Context context,ArrayList<InformationGoals> arrayList)
     {
      this.context = context;
      this.arrayList=arrayList;
@@ -36,22 +36,26 @@ public class MyAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
 
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.mycustomlistview,null);
-            TextView t1_name=(TextView)convertView.findViewById(R.id.name_txt);
-            TextView t2_age=(TextView)convertView.findViewById(R.id.age_txt);
-            TextView t3_height=(TextView)convertView.findViewById(R.id.height_txt);
-            TextView t4_weight=(TextView)convertView.findViewById(R.id.weight_txt);
+        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.mycustomlistview,null);
+        TextView t1_weightTarget=(TextView)convertView.findViewById(R.id.weightTarget_txt);
+        TextView t2_water=(TextView)convertView.findViewById(R.id.water_txt);
+        TextView t3_steps=(TextView)convertView.findViewById(R.id.steps_txt);
+        TextView t4_calories=(TextView)convertView.findViewById(R.id.calories_txt);
+        TextView t5_sleep=(TextView)convertView.findViewById(R.id.sleep_txt);
 
 
 
-            Information information = arrayList.get(position);
+
+        InformationGoals information = arrayList.get(position);
 
 
-            t1_name.setText(information.getName());
-            t2_age.setText(String.valueOf(information.getAge()));
-            t3_height.setText(String.valueOf(information.getHeight()));
-            t4_weight.setText(String.valueOf(information.getWeight()));
+        t1_weightTarget.setText("Weight Goal: "+String.valueOf(information.getWeightTarget())+" lbs");
+        t2_water.setText("Hydration Goal: "+String.valueOf(information.getWater())+" cups");
+        t3_steps.setText("Steps Goal: "+String.valueOf(information.getSteps())+" steps");
+        t4_calories.setText("Calorie Goal: "+String.valueOf(information.getCalories())+" cals");
+        t5_sleep.setText("Sleep Goal: "+String.valueOf(information.getSleep())+" hrs");
+
 
         return convertView;
     }
@@ -61,3 +65,4 @@ public class MyAdapter extends BaseAdapter {
         return this.arrayList.size();
     }
 }
+

@@ -2,6 +2,7 @@ package com.example.healthhelp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,7 +13,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 public class UpdateGoalsPage extends AppCompatActivity {
-    Button b1,b2,b3,b4,b5;
+    Button b1,b2,b3,b4,b5,b6;
     EditText e1,e2,e3,e4,e5;
     RegistrationDatabase db;
 
@@ -30,6 +31,7 @@ public class UpdateGoalsPage extends AppCompatActivity {
         e4 = findViewById(R.id.CaloriesGoalUpdateTxt);
         b5 = findViewById(R.id.updateSleepGoalBtn);
         e5 = findViewById(R.id.CaloriesSleepUpdateTxt);
+        b6 = findViewById(R.id.btnUpdateGoalHome);
         db = new RegistrationDatabase(this);
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +115,13 @@ public class UpdateGoalsPage extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Sleep entered failed",Toast.LENGTH_LONG).show();
                 }
 
+            }
+        });
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent i = new Intent(UpdateGoalsPage.this, HomePage.class) ;
+                startActivity(i);
             }
         });
 

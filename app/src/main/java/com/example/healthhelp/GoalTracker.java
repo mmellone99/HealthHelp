@@ -104,17 +104,17 @@ public class GoalTracker extends AppCompatActivity {
         }
         else{
             if(todaysCaloriesDatabase.equals("null")){
-                textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cups");
+                textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories");
             }
             else {
                 int todaysCaloriesInt = Integer.parseInt(todaysCaloriesDatabase);
                 int yesterdaysCaloriesInt = Integer.parseInt(yesterdaysCaloriesDatabse);
                 int trendCaloriesDaily = todaysCaloriesInt - yesterdaysCaloriesInt;
                 if(trendCaloriesDaily>0){
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: +"+trendCaloriesDaily+" cals) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories (Trend: +"+trendCaloriesDaily+" calories) ");
                 }
                 else{
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: "+trendCaloriesDaily+" cals) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories (Trend: "+trendCaloriesDaily+" calories) ");
                 }
             }
         }
@@ -128,7 +128,7 @@ public class GoalTracker extends AppCompatActivity {
         }
         else{
             if(todayStepDatabase.equals("null")){
-                textViewStepDaily.setText((yesterdaysStepsDatabase) + " cups");
+                textViewStepDaily.setText((yesterdaysStepsDatabase) + " steps");
             }
             else {
                 int todaysStepInt = Integer.parseInt(todayStepDatabase);
@@ -138,7 +138,7 @@ public class GoalTracker extends AppCompatActivity {
                     textViewStepDaily.setText((yesterdaysStepsDatabase) + " steps (Trend: +"+trendStepDaily+" steps) ");
                 }
                 else{
-                    textViewStepDaily.setText((yesterdaysStepsDatabase) + " cups (Trend: "+trendStepDaily+" cups) ");
+                    textViewStepDaily.setText((yesterdaysStepsDatabase) + " steps (Trend: "+trendStepDaily+" steps) ");
                 }
             }
         }
@@ -152,17 +152,17 @@ public class GoalTracker extends AppCompatActivity {
         }
         else {
             if(todaysSleepDatabase.equals("null")){
-                textViewSleepDaily.setText((yesterdaysSleepDatabase) + " cups");
+                textViewSleepDaily.setText((yesterdaysSleepDatabase) + " hours");
             }
             else {
                 int todaysSleepInt = Integer.parseInt(todaysSleepDatabase);
                 int yesterdaysSleepInt = Integer.parseInt(yesterdaysSleepDatabase);
                 int trendSleepDaily = todaysSleepInt - yesterdaysSleepInt;
                 if(trendSleepDaily>0){
-                    textViewSleepDaily.setText((yesterdaysSleepDatabase) + " cups (Trend: +"+trendSleepDaily+" cups) ");
+                    textViewSleepDaily.setText((yesterdaysSleepDatabase) + " hours (Trend: +"+trendSleepDaily+" hours) ");
                 }
                 else{
-                    textViewSleepDaily.setText((yesterdaysSleepDatabase) + " cups (Trend: "+trendSleepDaily+" cups) ");
+                    textViewSleepDaily.setText((yesterdaysSleepDatabase) + " hours (Trend: "+trendSleepDaily+" hours) ");
                 }
             }
         }

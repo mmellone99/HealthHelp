@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
 
-import com.example.healthhelp.Adapters.MyAdapter;
 import com.example.healthhelp.Adapters.MyProfileAdapter;
 import com.example.healthhelp.Model.Information;
 

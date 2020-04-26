@@ -2,17 +2,15 @@ package com.example.healthhelp;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.healthhelp.Adapters.MyAdapter;
-import com.example.healthhelp.Model.Information;
+import com.example.healthhelp.Model.InformationGoals;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -22,7 +20,7 @@ public class HomePage extends AppCompatActivity {
     RegistrationDatabase db;
     Button b1,b2,b3,b4,b5;
     ListView l1;
-    ArrayList<Information> arrayList;
+    ArrayList<InformationGoals> arrayGoalList;
     MyAdapter myAdapter;
 
     @Override
@@ -41,14 +39,14 @@ public class HomePage extends AppCompatActivity {
         b2=(Button)findViewById(R.id.btnProfilePage);
         b3=(Button)findViewById(R.id.btnEditGoals);
         b4=(Button)findViewById(R.id.btnActivityTrackingPage);
-        b5  = findViewById(R.id.changeGoalsBtn);
+        b5= (Button)findViewById(R.id.changeGoalsBtn);
 
 
-        arrayList = new ArrayList<>();
+        arrayGoalList = new ArrayList<>();
 
         l1 = (ListView)findViewById(R.id.listView);
 
-        loadDataInListView();
+        loadGoalDataInListView();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,10 +88,10 @@ public class HomePage extends AppCompatActivity {
         });
     }
 
-    private void loadDataInListView() {
+    private void loadGoalDataInListView() {
 
-        arrayList = db.getAllData();
-        myAdapter = new MyAdapter(this,arrayList);
+        arrayGoalList = db.getAllGoalData();
+        myAdapter = new MyAdapter(this,arrayGoalList);
         l1.setAdapter(myAdapter);
         myAdapter.notifyDataSetChanged();
     }
