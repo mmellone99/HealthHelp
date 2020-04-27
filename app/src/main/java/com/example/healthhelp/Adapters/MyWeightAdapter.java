@@ -43,6 +43,7 @@ public class MyWeightAdapter extends BaseAdapter {
         TextView t3_weightLifted=(TextView)convertView.findViewById(R.id.weightLifted_txt);
         TextView t4_numberSets=(TextView)convertView.findViewById(R.id.numberSets_txt);
         TextView t5_numberReps=(TextView)convertView.findViewById(R.id.numberReps_txt);
+        TextView t6_dateWeightCompleted=(TextView)convertView.findViewById(R.id.dateWeightCompleted_txt);
 
         InformationWeight information = arrayList.get(position);
 
@@ -51,6 +52,7 @@ public class MyWeightAdapter extends BaseAdapter {
         t3_weightLifted.setText(String.valueOf(information.getWeightLifted())+" lbs");
         t4_numberSets.setText(String.valueOf(information.getNumberSets())+" sets");
         t5_numberReps.setText(String.valueOf(information.getNumberReps())+" reps");
+        t6_dateWeightCompleted.setText(information.getDateWeightCompleted());
 
         return convertView;
     }

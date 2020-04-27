@@ -2,6 +2,7 @@ package com.example.healthhelp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,8 @@ public class ActivityTracker extends AppCompatActivity {
     RegistrationDatabase db;
     public static EditText e1;
     EditText e2, e3, e4, e5,e6;
-    Button b1, b2;
-    CheckBox c1, c2, c3;
+    Button b1, b2,b3;
+    CheckBox c1, c2,c3,c4;
     ListView l1,l2;
     ArrayList<InformationCardio> arrayCardioList;
     ArrayList<InformationWeight> arrayWeightList;
@@ -45,9 +46,11 @@ public class ActivityTracker extends AppCompatActivity {
         e6 = (EditText) findViewById(R.id.txtNumReps);
         b1 = (Button) findViewById(R.id.btnCardioExercise);
         b2 = (Button) findViewById(R.id.btnWeightExercise);
+        b3 = (Button) findViewById(R.id.btnHomeActTrack);
         c1 = findViewById(R.id.checkBoxBarbell);
         c2 = findViewById(R.id.checkBoxDumbbell);
         c3 = findViewById(R.id.checkBoxBodyWeight);
+        c4= findViewById(R.id.checkBoxMachine);
 
         arrayCardioList = new ArrayList<>();
 
@@ -95,7 +98,8 @@ public class ActivityTracker extends AppCompatActivity {
                 if (s3.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fields Empty", Toast.LENGTH_SHORT).show();
                 }
-                else if((c1.isChecked()&&c2.isChecked()) || (c1.isChecked())&&(c3.isChecked()) || (c2.isChecked()&&c3.isChecked())) {
+                else if((c1.isChecked()&&c2.isChecked()) || (c1.isChecked())&&(c3.isChecked()) || (c2.isChecked()&&c3.isChecked()) || c1.isChecked()&&c4.isChecked() ||
+                        c2.isChecked()&&c4.isChecked() || c3.isChecked()&&c4.isChecked()) {
                     Toast.makeText(getApplicationContext(), "Only Select one type", Toast.LENGTH_SHORT).show();
                 }
                 else if(c1.isChecked()) {
@@ -114,6 +118,19 @@ public class ActivityTracker extends AppCompatActivity {
                     Boolean insertWeightActivity = db.insertWeightActivity(s3,weightType, s4,s5,s6,currentDate);
                     Toast.makeText(getApplicationContext(), "Weight Activity Entered", Toast.LENGTH_SHORT).show();
                 }
+                else if(c4.isChecked()) {
+                    weightType = "Machine";
+                    Boolean insertWeightActivity = db.insertWeightActivity(s3,weightType, s4,s5,s6,currentDate);
+                    Toast.makeText(getApplicationContext(), "Weight Activity Entered", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(ActivityTracker.this, HomePage.class) ;
+                startActivity(i);
             }
         });
 

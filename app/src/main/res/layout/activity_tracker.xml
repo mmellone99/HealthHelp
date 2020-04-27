@@ -7,64 +7,27 @@
     android:background="#cefcfd"
     tools:context=".ActivityTracker">
 
-    <EditText
-        android:id="@+id/txtCardioExercise"
-        android:layout_width="162dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Cardio Exercise"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnCardioExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="84dp"
-        android:text="Enter Cardio"
-        app:layout_constraintStart_toEndOf="@+id/txtCardioDuration"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtCardioDuration"
-        android:layout_width="162dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Duration (Minutes)"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCardioExercise" />
-
     <Button
         android:id="@+id/btnWeightExercise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginLeft="54dp"
-        android:layout_marginTop="21dp"
+        android:layout_width="156dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="13dp"
+        android:layout_marginLeft="13dp"
+        android:layout_marginTop="41dp"
         android:text="Enter Lift"
-        app:layout_constraintStart_toEndOf="@+id/txtNumSets"
+        app:layout_constraintStart_toEndOf="@+id/txtNumReps"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxBodyWeight" />
 
     <CheckBox
         android:id="@+id/checkBoxBodyWeight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="160dp"
         android:text="Body Weight"
         android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/checkBoxBarbell"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxMachine"
         app:layout_constraintTop_toBottomOf="@+id/listViewCardio" />
 
     <ImageView
@@ -82,14 +45,14 @@
         android:id="@+id/txtWeightName"
         android:layout_width="162dp"
         android:layout_height="41dp"
-        android:layout_marginStart="68dp"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="184dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginLeft="72dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Weight Exercise "
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCardioDuration" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <EditText
         android:id="@+id/txtWeightLifted"
@@ -120,8 +83,9 @@
         android:id="@+id/checkBoxDumbbell"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="2dp"
         android:text="Dumbbell"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -133,22 +97,12 @@
         android:layout_height="41dp"
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="# Sets"
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxDumbbell" />
-
-    <CheckBox
-        android:id="@+id/checkBoxBarbell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:text="Barbell"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/checkBoxDumbbell"
-        app:layout_constraintTop_toBottomOf="@+id/txtWeightLifted" />
 
     <EditText
         android:id="@+id/txtNumReps"
@@ -161,6 +115,18 @@
         android:inputType="number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNumSets" />
+
+    <CheckBox
+        android:id="@+id/checkBoxBarbell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="2dp"
+        android:text="Barbell"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxDumbbell"
+        app:layout_constraintTop_toBottomOf="@+id/txtWeightLifted" />
 
     <TextView
         android:id="@+id/textView22"
@@ -199,15 +165,74 @@
 
     <ListView
         android:id="@+id/listViewWeight"
-        android:layout_width="404dp"
-        android:layout_height="183dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="6dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
+        android:layout_width="401dp"
+        android:layout_height="152dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbars="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNumReps" />
+
+    <EditText
+        android:id="@+id/txtCardioExercise"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Cardio Exercise"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnCardioExercise"
+        android:layout_width="156dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:text="Enter Cardio"
+        app:layout_constraintStart_toEndOf="@+id/txtCardioExercise"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <EditText
+        android:id="@+id/txtCardioDuration"
+        android:layout_width="162dp"
+        android:layout_height="41dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Duration (Minutes)"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCardioExercise" />
+
+    <CheckBox
+        android:id="@+id/checkBoxMachine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Machine"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxBarbell"
+        app:layout_constraintTop_toBottomOf="@+id/txtWeightLifted" />
+
+    <Button
+        android:id="@+id/btnHomeActTrack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:text="Back Home"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
 
-        android:weightSum="5">
+        android:weightSum="6">
 
         <TextView
             android:id="@+id/weightExerciseName_txt"
@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
 
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/weightLifted_txt"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/numberSets_txt"
@@ -51,7 +51,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/numberReps_txt"
@@ -60,7 +60,16 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/dateWeightCompleted_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:text="01"
+            android:textSize="12sp" />
 
 
 

@@ -6,16 +6,18 @@ import java.util.Locale;
 public class InformationWeight {
     String exerciseWeightName;
     String weightType;
+    String dateWeightCompleted;
     int weightLifted;
     int numberSets;
     int numberReps;
 
-    public InformationWeight(String exerciseWeightName, String weightType, int weightLifted, int numberSets, int numberReps) {
+    public InformationWeight(String exerciseWeightName, String weightType, int weightLifted, int numberSets, int numberReps, String dateWeightCompleted) {
         this.exerciseWeightName = exerciseWeightName;
         this.weightType = weightType;
         this.weightLifted = weightLifted;
         this.numberSets = numberSets;
         this.numberReps = numberReps;
+        this.dateWeightCompleted = dateWeightCompleted;
     }
     public InformationWeight(){}
 
@@ -57,6 +59,13 @@ public class InformationWeight {
 
     public void setNumberReps(int numberReps) {
         this.numberReps = numberReps;
+    }
+    public String getDateWeightCompleted() {
+        return dateWeightCompleted;
+    }
+
+    public void setDateCardioCompleted(String dateCardioCompleted) {
+        this.dateWeightCompleted = dateCardioCompleted;
     }
 
 

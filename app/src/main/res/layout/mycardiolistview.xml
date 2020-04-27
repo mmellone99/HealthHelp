@@ -21,9 +21,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
 
         <TextView
@@ -31,9 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:gravity="right"
+            android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/dateCardioCompleted_txt"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:gravity="left"
             android:text="01"
-            android:textSize="20sp" />
+            android:textSize="15sp" />
 
 
 

@@ -11,6 +11,7 @@ public class InformationCardio {
     public InformationCardio(String cardioExerciseName, int cardioDuration, String dateCardioCompleted) {
         this.cardioExerciseName = cardioExerciseName;
         this.cardioDuration = cardioDuration;
+        this.dateCardioCompleted = dateCardioCompleted;
     }
     public InformationCardio(){}
 

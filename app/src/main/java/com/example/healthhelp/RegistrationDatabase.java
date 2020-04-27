@@ -29,8 +29,8 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         db.execSQL("Create table information(email text primary key, name text, age int, height int, weight int, gender text)");
         db.execSQL("Create table goalTargets (email text primary key, weightTarget int, water int, steps int, calories int, sleep int)");
         db.execSQL("Create table goalTracking (email text primary key, weightTracker int, waterTracker int, stepsTracker int, caloriesTracker int, sleepTracker int, dateInserted text)");
-        db.execSQL("Create table activityCardioTracking(exerciseCardioName text primary key, cardioDuration int,dateInserted text)");
-        db.execSQL("Create table activityWeightTracking(exerciseWeightName text primary key,  weightType text, weightLifted int, numberSets int, numberReps int, dateInserted text )");
+        db.execSQL("Create table activityCardioTracking(exerciseCardioNumber primary key, exerciseCardioName text, cardioDuration int,dateInserted text)");
+        db.execSQL("Create table activityWeightTracking(exerciseWeightNumber primary key, exerciseWeightName text,  weightType text, weightLifted int, numberSets int, numberReps int, dateInserted text )");
     }
 
     @Override
@@ -657,9 +657,9 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from activityCardioTracking", null);
         while(cursor.moveToNext())
         {
-            String exerciseCardioName = cursor.getString(0);
-            int cardioDuration = cursor.getInt(1);
-            String dateInserted = cursor.getString(2);
+            String exerciseCardioName = cursor.getString(1);
+            int cardioDuration = cursor.getInt(2);
+            String dateInserted = cursor.getString(3);
             InformationCardio information = new InformationCardio(exerciseCardioName,cardioDuration,dateInserted);
 
             arrayList.add(information);
@@ -673,12 +673,13 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("select * from activityWeightTracking", null);
         while(cursor.moveToNext())
         {
-            String exerciseWeightName = cursor.getString(0);
-            String weightType = cursor.getString(1);
-            int weightLifted = cursor.getInt(2);
-            int numberSets = cursor.getInt(3);
-            int numberReps = cursor.getInt(4);
-            InformationWeight information = new InformationWeight(exerciseWeightName,weightType,weightLifted,numberSets,numberReps);
+            String exerciseWeightName = cursor.getString(1);
+            String weightType = cursor.getString(2);
+            int weightLifted = cursor.getInt(3);
+            int numberSets = cursor.getInt(4);
+            int numberReps = cursor.getInt(5);
+            String dateInserted = cursor.getString(6);
+            InformationWeight information = new InformationWeight(exerciseWeightName,weightType,weightLifted,numberSets,numberReps,dateInserted);
 
             arrayList.add(information);
         }
