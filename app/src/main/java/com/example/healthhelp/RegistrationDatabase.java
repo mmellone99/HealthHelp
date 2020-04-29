@@ -183,8 +183,10 @@ public class RegistrationDatabase extends SQLiteOpenHelper {
         if(cursor.getCount()==0){
             return "null";
         }
-        while(cursor.moveToNext()){
-            weeklyWeight = cursor.getInt(1);
+        else{
+            while(cursor.moveToNext()) {
+                weeklyWeight = cursor.getInt(1);
+            }
         }
         return (Integer.toString(weeklyWeight));
     }

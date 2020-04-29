@@ -104,17 +104,17 @@ public class GoalTracker extends AppCompatActivity {
         }
         else{
             if(todaysCaloriesDatabase.equals("null")){
-                textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories");
+                textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals");
             }
             else {
                 int todaysCaloriesInt = Integer.parseInt(todaysCaloriesDatabase);
                 int yesterdaysCaloriesInt = Integer.parseInt(yesterdaysCaloriesDatabse);
                 int trendCaloriesDaily = todaysCaloriesInt - yesterdaysCaloriesInt;
                 if(trendCaloriesDaily>0){
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories (Trend: +"+trendCaloriesDaily+" calories) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: +"+trendCaloriesDaily+" cals) ");
                 }
                 else{
-                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " calories (Trend: "+trendCaloriesDaily+" calories) ");
+                    textViewCalorieDaily.setText((yesterdaysCaloriesDatabse) + " cals (Trend: "+trendCaloriesDaily+" cals) ");
                 }
             }
         }
@@ -180,7 +180,7 @@ public class GoalTracker extends AppCompatActivity {
             textViewWeightWeekly.setText("Data Unavaliable");
         }
         else {
-            if(todaysHydrate.equals("null")){
+            if(todaysWeightDatabse.equals("null")){
                 textViewWeightDaily.setText((yesterdaysWeighDatabase) + " lbs");
             }
             else {
@@ -188,10 +188,10 @@ public class GoalTracker extends AppCompatActivity {
                 int weeklyWeightInt = Integer.parseInt(weeklyWeight);
                 int trendWeeklyWeight = todaysWeightInt - weeklyWeightInt;
                 if(trendWeeklyWeight>0){
-                    textViewWeightDaily.setText((yesterdaysWeighDatabase) + " lbs (Trend: +"+trendWeeklyWeight+" lbs) ");
+                    textViewWeightWeekly.setText((yesterdaysWeighDatabase) + " lbs (Trend: +"+trendWeeklyWeight+" lbs) ");
                 }
                 else{
-                    textViewWeightDaily.setText((yesterdaysWeighDatabase) + " lbs (Trend: "+trendWeeklyWeight+" lbs) ");
+                    textViewWeightWeekly.setText((yesterdaysWeighDatabase) + " lbs (Trend: "+trendWeeklyWeight+" lbs) ");
                 }
             }
         }
@@ -269,20 +269,22 @@ public class GoalTracker extends AppCompatActivity {
         }
         else {
             if(todaysCaloriesDatabase.equals("null")){
-                textViewCaloriesWeekly.setText((weeklyCalories) + " calories");
+                textViewCaloriesWeekly.setText((weeklyCalories) + " cals");
             }
             else {
                 int todaysCaloriesInt = Integer.parseInt(todaysCaloriesDatabase);
                 int weeklyCaloriesInt = Integer.parseInt(weeklyCalories);
                 int trendCaloriesWeekly = todaysCaloriesInt - weeklyCaloriesInt;
                 if(trendCaloriesWeekly>0){
-                    textViewCaloriesWeekly.setText((yesterdaysCaloriesDatabse) + " calories (Trend: +"+trendCaloriesWeekly+" calories) ");
+                    textViewCaloriesWeekly.setText((yesterdaysCaloriesDatabse) + " cals (Trend: +"+trendCaloriesWeekly+" cals) ");
                 }
                 else{
-                    textViewCaloriesWeekly.setText((yesterdaysCaloriesDatabse) + " calories (Trend: "+trendCaloriesWeekly+" calories) ");
+                    textViewCaloriesWeekly.setText((yesterdaysCaloriesDatabse) + " cals (Trend: "+trendCaloriesWeekly+" cals) ");
                 }
             }
         }
+
+
 
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
